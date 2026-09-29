@@ -1,46 +1,82 @@
-# Astro Starter Kit: Basics
+# Portfolio Astro
 
-```sh
-npm create astro@latest -- --template basics
+
+![Astro](https://img.shields.io/badge/Astro-1B253A?logo=astro&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)
+
+Este proyecto es un portafolio personal desarrollado con [Astro](https://astro.build/) y componentes Svelte, pensado para mostrar tus habilidades, experiencia, proyectos y enlaces a redes sociales, incluyendo la integración dinámica de vídeos recientes de YouTube.
+
+## 🚀 Estructura del Proyecto
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/                  # Archivos estáticos (imágenes, iconos, etc.)
+├── src/
+│   ├── components/          # Componentes Astro y Svelte
+│   ├── layouts/             # Layouts reutilizables
+│   └── pages/               # Páginas principales del sitio
+├── package.json
+└── astro.config.mjs
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🧑‍💻 Tecnologías
 
-## 🧞 Commands
+- [Astro](https://astro.build/)
+- SCSS para estilos
+- Integración con la API de YouTube
 
-All commands are run from the root of the project, from a terminal:
+## ⚙️ Instalación y uso
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. **Clona el repositorio:**
+   ```sh
+   git clone https://github.com/tu-usuario/rubenterre-v27.git
+   cd rubenterre-v27
+   ```
 
-## 👀 Want to learn more?
+2. **Instala las dependencias:**
+   ```sh
+   npm install
+   ```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+3. **Configura las variables de entorno:**
+
+   Crea un archivo `.env` en la raíz del proyecto con el siguiente contenido:
+
+   ```
+   PUBLIC_API_KEY=tu_api_key_de_youtube
+   PUBLIC_CHANNEL_ID=tu_channel_id
+   ```
+
+   > Puedes obtener la API Key desde [Google Cloud Console](https://console.cloud.google.com/).
+
+4. **Inicia el servidor de desarrollo:**
+   ```sh
+   npm run dev
+   ```
+
+   El sitio estará disponible en [http://localhost:4321](http://localhost:4321)
+
+## 📦 Comandos útiles
+
+| Comando            | Acción                                         |
+|--------------------|-----------------------------------------------|
+| `npm install`      | Instala las dependencias                      |
+| `npm run dev`      | Inicia el servidor de desarrollo              |
+| `npm run build`    | Genera la versión de producción en `/dist`    |
+| `npm run preview`  | Previsualiza la versión de producción         |
+
+## ✨ Características
+
+- Diseño responsive y moderno.
+- Sección de habilidades, experiencia y proyectos.
+- Integración con redes sociales (YouTube, LinkedIn, Behance, GitHub).
+- Últimos vídeos de tu canal de YouTube cargados dinámicamente.
+- Fácilmente personalizable.
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia MIT.
+
+---
+
+¿Dudas o sugerencias? ¡Contribuye o abre un issue!

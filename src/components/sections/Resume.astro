@@ -1,0 +1,89 @@
+---
+import Education from "../resume/Education.astro";
+import Experience from "../resume/Experience.astro";
+---
+
+<section class="resume" id="resume" aria-labelledby="resume-title">
+  <div class="container">
+    <div class="main__pills">
+      <div class="main__pill">
+        <img
+          class="main__img"
+          src="icons/sections/education-experience_icon.svg"
+          alt="Icono del apartado sobre mi trayectoria laboral y académica"
+          width="18px"
+        />
+        <p class="main__tit">Trayectoria</p>
+      </div>
+    </div>
+
+    <h2 class="main__h2" id="resume-title">
+      Experiencia <span class="main__span">&</span> Educación
+    </h2>
+    <div class="row">
+      <div class="col s12">
+        <div class="resume__stack">
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="resume__category">
+                <h3 class="resume__title">Experiencia</h3>
+                <p class="resume__p">Mi trayectoria profesional</p>
+              </div>
+            </div>
+
+            <div class="col s12 m8">
+              <div class="resume__cards">
+                <Experience />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12">
+        <div class="resume__stack">
+          <div class="row">
+            <div class="col s12 m4">
+              <div class="resume__category">
+                <h3 class="resume__title">Educación</h3>
+                <p class="resume__p">Mi trayectoria académica</p>
+              </div>
+            </div>
+            <div class="col s12 m8">
+              <div class="resume__cards">
+                <Education />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="main__hr" />
+  </div>
+
+  <style lang="scss">
+    @use "../../styles/global.scss" as *;
+
+    // Resume
+
+    .resume__stack {
+      padding: 2cqw 0px;
+    }
+
+    .resume__category {
+      padding-left: 20px;
+    }
+
+    .resume__title {
+      font-family: $font-secondary;
+      font-size: 1.2rem;
+    }
+
+    .resume__p {
+      font-size: 0.8rem;
+      color: $text-muted;
+      border-bottom: 3px solid $primary;
+      max-width: fit-content;
+    }
+  </style>
+</section>

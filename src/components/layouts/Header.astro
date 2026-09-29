@@ -1,0 +1,146 @@
+---
+import avatar from '../../assets/images/ruben_terre_avatar.png'
+
+const navLinks = [
+  { href: '#about', label: 'Sobre mí' },
+  { href: '#skills', label: 'Habilidades' },
+    { href: '#portfolio', label: 'Portfolio' },
+  { href: '#resume', label: 'Trayectoria' },
+  { href: '#contact', label: 'Contacto' },
+]
+---
+
+<div class="container">
+  <header class="header">
+    <div class="header__container">
+      <div class="header__menu">
+        <div class="header__perfil">
+          <div class="header__avatar">
+            <img src={avatar.src} alt="Logo de Rubén Terré" width="68" height="68" />
+          </div>
+
+          <div class="header__info">
+            <h6 class="header__nombre-marca">Rubén Terré</h6>
+            <div class="header__descripcion">
+              Crear y enseñar
+            </div>
+          </div>
+        </div>
+          <nav class="header__nav" aria-label="Navegación principal">
+            {navLinks.map(({ href, label }) => (
+              <a href={href} class="header__link">
+                {label} 
+              </a>
+            ))}
+          </nav>
+
+          <div class="header__cta">
+            <a href="#contact" class="header__a--cta animate-hover-btn">
+              Contrátame
+            </a>
+          </div>
+        
+      </div>
+
+
+    </div>
+  </header>
+</div>
+
+<style lang="scss">
+@use "../../styles/global" as *;
+
+.header {
+  padding-top: 39px;
+  isolation: isolate;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+@media (max-width: 1149px) {
+  .header {
+    padding-top: 20px;
+  }
+}
+
+.header__container{
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  background: $bg-linear-2;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1019607843);
+  border-radius: 160px;
+  padding: 12px 20px 12px 12px;
+  gap: 2rem;
+}
+
+.header__perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header__avatar {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.header__nombre-marca{
+    font-family: $font-third;
+    font-size: 1.3rem;
+     margin: 0;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    color: $text-light;
+}
+
+.header__descripcion{
+    font-family: $font-secondary;
+    color: $primary;
+    font-size: .9rem;
+    text-transform: uppercase;
+}
+
+.header__nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header__link {
+  text-decoration: none;
+  font-family: $font-third;
+  color: $text-light;
+  line-height: 1;
+}
+
+.header__a--cta{
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 24px;
+    width: max-content;
+    padding: 0px 20px;
+    border-radius: 40px;
+    gap: 8px;
+    background-color: $primary;
+    color: $text-dark;
+    font-family: $font-secondary;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+</style>
