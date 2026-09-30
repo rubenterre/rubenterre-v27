@@ -324,23 +324,54 @@ button {
 $small-screen-up: 601px !default;
 $medium-screen-up: 993px !default;
 $large-screen-up: 1201px !default;
+
 $small-screen: 600.99px !default;
 $medium-screen: 992.99px !default;
 $large-screen: 1200.99px !default;
 
-$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
-$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
-$extra-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
-$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
-$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
-$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+// Named ranges
+$small-only: "only screen and (max-width: #{$small-screen})" !default;
+$medium-only: "only screen and (min-width: #{$small-screen-up}) and (max-width: #{$medium-screen})" !default;
+$large-only: "only screen and (min-width: #{$medium-screen-up}) and (max-width: #{$large-screen})" !default;
+$extra-large-only: "only screen and (min-width: #{$large-screen-up})" !default;
+
+// Up / Down ranges
+$medium-and-up: "only screen and (min-width: #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width: #{$medium-screen-up})" !default;
+$extra-large-and-up: "only screen and (min-width: #{$large-screen-up})" !default;
+
+$small-and-down: "only screen and (max-width: #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width: #{$medium-screen})" !default;
+$large-and-down: "only screen and (max-width: #{$large-screen})" !default;
 
 /*********************
   Media Query Classes
 **********************/
+
+/* Base helpers:
+   Las clases show-* parten ocultas por defecto para que no se muestren fuera de su rango.
+*/
+.show-on-small,
+.show-on-medium,
+.show-on-large,
+.show-on-extra-large,
+.show-on-medium-and-up,
+.show-on-medium-and-down,
+.show-on-large-and-up,
+.show-on-large-and-down {
+  display: none !important;
+}
+
+/* Hide helpers */
 .hide-on-small-only,
 .hide-on-small-and-down {
-  @media #{$small-and-down} {
+  @media #{$small-only} {
+    display: none !important;
+  }
+}
+
+.hide-on-med-only {
+  @media #{$medium-only} {
     display: none !important;
   }
 }
@@ -357,44 +388,51 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
   }
 }
 
-.hide-on-med-only {
-  @media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
+.hide-on-large-only {
+  @media #{$large-only} {
     display: none !important;
   }
 }
 
-.hide-on-large-only {
+.hide-on-large-and-up {
   @media #{$large-and-up} {
+    display: none !important;
+  }
+}
+
+.hide-on-large-and-down {
+  @media #{$large-and-down} {
     display: none !important;
   }
 }
 
 .hide-on-extra-large-only {
-  @media #{$extra-large-and-up} {
+  @media #{$extra-large-only} {
     display: none !important;
   }
 }
 
-.show-on-extra-large {
-  @media #{$extra-large-and-up} {
-    display: block !important;
-  }
-}
-
-.show-on-large {
-  @media #{$large-and-up} {
+/* Show helpers */
+.show-on-small {
+  @media #{$small-only} {
     display: block !important;
   }
 }
 
 .show-on-medium {
-  @media only screen and (min-width: $small-screen-up) and (max-width: $medium-screen) {
+  @media #{$medium-only} {
     display: block !important;
   }
 }
 
-.show-on-small {
-  @media #{$small-and-down} {
+.show-on-large {
+  @media #{$large-only} {
+    display: block !important;
+  }
+}
+
+.show-on-extra-large {
+  @media #{$extra-large-only} {
     display: block !important;
   }
 }
@@ -410,6 +448,19 @@ $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width 
     display: block !important;
   }
 }
+
+.show-on-large-and-up {
+  @media #{$large-and-up} {
+    display: block !important;
+  }
+}
+
+.show-on-large-and-down {
+  @media #{$large-and-down} {
+    display: block !important;
+  }
+}
+
 
 /* Grid system */
 

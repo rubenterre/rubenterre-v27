@@ -1,0 +1,30 @@
+---
+import arrow from "../../assets/icons/arrow-up-icon.svg";
+---
+
+<a href="#top"  class="uptotop">
+    <img src={arrow.src} alt="Icono de ir al inicio de la página web" width="20" height="20">
+</a>
+
+<style lang="scss">
+ @use "../../styles/global" as *;
+
+    .uptotop{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    font-size: 24px;
+    background: linear-gradient(
+      123.51deg,
+      rgba(215, 237, 237, 0.1) -61.8%,
+      rgba(204, 235, 235, 0.01) 100%
+    );
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    }
+
+</style>
