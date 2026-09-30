@@ -85,22 +85,18 @@ try {
     </div>
 
     <div class="col s12">
-      <div class="button__btn">
-        <a
+
+
+        <div class="youtube__more">
+          <a
           href="https://www.youtube.com/@rubenterre?sub_confirmation=1"
           target="_blank"
           rel="noopener noreferrer"
-          class="button__button animate-hover-btn"
-        >
-          <img
-            class="youtube__imglink"
-            src="/icons/link-icon.svg"
-            alt="Icono de enlace al canal de YouTube"
-            width="14"
-          />
-          <p class="youtube__p">Ver el canal de YouTube</p>
-        </a>
-      </div>
+            class="youtube__a youtube__a--more animate-hover-btn"
+          >
+            VER CANAL DE YOUTUBE
+          </a>
+        </div>
     </div>
 
     <hr class="main__hr" />
@@ -153,5 +149,40 @@ try {
     font-size: 1.2rem;
     text-align: center;
     text-decoration: none;
+  }
+
+    .youtube__a {
+    border: 1px solid $text-secondary;
+    width: 100px;
+    background-color: $bg-linear;
+    text-decoration: none;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 24px;
+    width: max-content;
+
+    padding: 10px 20px;
+    border-radius: 40px;
+    gap: 8px;
+    color: $text-dark;
+    font-family: $font-secondary;
+    font-weight: 600;
+  }
+
+    .youtube__more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+  }
+
+  .youtube__a--more {
+    width: 250px;
+    font-family: $font-primary;
+    font-size: 1.2rem;
+    color: white;
   }
 </style>

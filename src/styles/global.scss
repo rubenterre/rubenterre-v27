@@ -203,7 +203,7 @@ button {
     color: $bg-dark;
     background-color: $primary;
     padding: 10px 40px;
-    border: 1px solid $text-secondary;
+    border: 1px solid $primary;
     border-radius: 40px;
     margin: 40px 0px;
     max-width: 600px;
@@ -212,7 +212,7 @@ button {
   }
 
   .button__button:hover {
-    border: 1px solid white;
+    border: 1px solid $primary
   }
 
   .button__p{

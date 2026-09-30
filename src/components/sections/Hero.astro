@@ -1,26 +1,35 @@
 ---
 import cv from "../../assets/icons/download.svg";
 import linkedin from "../../assets/icons/social/linkedin.svg";
+import github from "../../assets/icons/social/github.svg";
+import youtube from "../../assets/icons/social/youtube.svg";
+import behance from "../../assets/icons/social/behance.svg";
 
+const socials = [
+    {icon: linkedin, name: "Linkedin"},
+    {icon: github, name: "GitHub"},
+    {icon: youtube, name: "YouTube"},
+    {icon: behance, name: "Behance"}
+]
 ---
 
 <div class="container">
   <section class="hero">
+    <h4 class="hero__h4">
+        ¡Hola! Soy
+    </h4>
     <h4 class="hero__h4 animationtext terminal">
-      ¡Hola! Soy
       <span
         class="hero__text terminal-text text_primary-color"
-        data-words='["Desarrollador web","Diseñador gráfico","Docente"]'
+        data-words='["Desarrollador web","Diseñador gráfico","Docente informático"]'
         data-type-speed="85"
         data-delete-speed="45"
-        data-pause="1400"
-      ></span>
+        data-pause="1400"></span>
     </h4>
-    <h1 class="hero__h1">
-        Construyamos juntos
-    </h1>
+    <h1 class="hero__h1">creemos juntos</h1>
     <p class="hero__description">
-        Explora mis proyectos y descubre cómo puedo ayudarte a llevar tus ideas al siguiente nivel.
+      Explora mis proyectos y descubre cómo puedo ayudarte a llevar tus ideas al
+      siguiente nivel.
     </p>
     <div class="col s12">
       <div class="button__btn">
@@ -42,23 +51,35 @@ import linkedin from "../../assets/icons/social/linkedin.svg";
       </div>
 
       <div class="hero__social">
-
-        <a class="hero__social-link" href="http://" target="_blank" rel="noopener noreferrer">
-            <img class="hero__social-icon" src={linkedin.src} alt="" width="28" height="28">
+        {socials.map(({icon,name}) => (
+        <a
+          class="hero__social-link animate-hover-btn"
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            class="hero__social-icon"
+            src={icon.src}
+            alt={name}
+            width="28"
+            height="28"
+          />
         </a>
-
+        ))}
       </div>
-
-
     </div>
   </section>
-  <hr class="main__hr">
+  <hr class="main__hr" />
 </div>
 
 <script>
   const terminal = document.querySelector(".terminal-text");
 
-  if (terminal && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (
+    terminal &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  ) {
     const words = JSON.parse(terminal.dataset.words || "[]");
     const typeSpeed = Number(terminal.dataset.typeSpeed || 85);
     const deleteSpeed = Number(terminal.dataset.deleteSpeed || 45);
@@ -107,91 +128,105 @@ import linkedin from "../../assets/icons/social/linkedin.svg";
 </script>
 
 <style lang="scss">
-@use "../../styles/global.scss" as *;
+  @use "../../styles/global.scss" as *;
 
-.hero {
-  padding-top: 233.38px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
+  .hero {
+    padding-top: clamp(7rem, 18vh, 14.5rem);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.75rem, 0.5rem + 1vw, 1.5rem);
+  }
 
-.hero__h4 {
-  font-family: $font-third;
-  font-size: 2rem;
-  margin: 0;
-  text-rendering: optimizeLegibility;
-  font-weight: 500;
-  color: $text-light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero__h1{
+  .hero__h4 {
     font-family: $font-third;
-    font-size: clamp(25px, 3rem, 5rem);
+    font-size: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+    margin: 0;
+    line-height: 1.1;
+    text-rendering: optimizeLegibility;
+    font-weight: 500;
+    color: $text-light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero__h1 {
+    font-family: $font-third;
+    font-size: clamp(2rem, 1.3rem + 4.5vw, 5rem);
     text-transform: uppercase;
-}
-
-.hero__text {
-  padding-left: 10px;
-  color: $primary;
-}
-
-.terminal-text {
-  position: relative;
-  display: inline-block;
-/*   min-width: 18ch;
- */  
-    min-width: 15ch;
- white-space: nowrap;
-}
-
-.terminal-text::after {
-  content: "_";
-  display: inline-block;
-  margin-left: 2px;
-  color: currentColor;
-  animation: terminal-caret 0.9s step-end infinite;
-}
-
-@keyframes terminal-caret {
-  0%, 45% {
-    opacity: 1;
+    text-align: center;
   }
-  46%, 100% {
-    opacity: 0;
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
+  .hero__description{
+    font-family: $font-primary;
+      font-size: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);
+  line-height: 1.6;
+    max-width: 48ch;
+    text-align: center;
+  }
+
+  .hero__text {
+    color: $primary;
+  }
+
+  .terminal-text {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-width: 100%;
+    white-space: nowrap;
+  }
+
   .terminal-text::after {
-    animation: none;
-    opacity: 1;
+    content: "_";
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    margin-left: 2px;
+    color: currentColor;
+    animation: terminal-caret 0.9s step-end infinite;
   }
-}
 
+  @keyframes terminal-caret {
+    0%,
+    45% {
+      opacity: 1;
+    }
+    46%,
+    100% {
+      opacity: 0;
+    }
+  }
 
-.hero__social{
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-text::after {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
+  .hero__social {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-}
+  }
 
-.hero__social-link{
-/*     border: 1px solid $text-secondary;
- */display: flex;
+  .hero__social-link {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 48px;
     width: 48px;
     border-radius: 50%;
     font-size: 24px;
-    background: linear-gradient(123.51deg, rgba(215, 237, 237, 0.1) -61.8%, rgba(204, 235, 235, 0.01) 100%);
-}
-
+    background: linear-gradient(
+      123.51deg,
+      rgba(215, 237, 237, 0.1) -61.8%,
+      rgba(204, 235, 235, 0.01) 100%
+    );
+  }
 </style>
