@@ -12,11 +12,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^8.2.6",
     "astro": "^7.3.5",
+    "astro-seo": "^1.2.0",
     "sass": "^1.105.0"
   },
   "allowScripts": {
     "esbuild": true,
-    "fsevents@2.3.3": true
+    "fsevents@2.3.3": true,
+    "@parcel/watcher@2.6.0": true,
+    "sharp@0.34.5": true
   }
 }
