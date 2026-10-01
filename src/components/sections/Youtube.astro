@@ -7,22 +7,43 @@ interface Props {
 
 const { apiKey, channelId, maxResults = 3 } = Astro.props;
 
-let videos: any[] = [];
+interface YouTubeVideo {
+  id: { videoId: string };
+  snippet: {
+    title: string;
+    thumbnails: {
+      high?: { url: string };
+      medium?: { url: string };
+    };
+  };
+}
+
+let videos: YouTubeVideo[] = [];
 let error = "";
 
 try {
+
+  if (!apiKey || !channelId) {
+    throw new Error("Faltan las credenciales (apiKey o channelId).");
+  }
+
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&order=date&maxResults=${maxResults}&type=video&key=${apiKey}`;
-  const response = await fetch(url);
+  
+  const response = await fetch(url, {
+     headers: { "Referer": "https://rubenterre.me" } 
+  });
+  
   const data = await response.json();
 
   if (!response.ok) {
     error = data?.error?.message || "No se pudo consultar la API de YouTube.";
+    console.error("Error de YouTube API:", data?.error);
   } else {
-    videos = (data.items ?? []).filter((video) => video?.id?.videoId);
+    videos = (data.items ?? []).filter((video: any) => video?.id?.videoId);
   }
 } catch (err) {
   error = "Error de red al cargar los vídeos.";
-  console.error("Error fetching videos:", err);
+  console.error("Error interno del componente YouTube:", err);
 }
 ---
 
@@ -51,8 +72,7 @@ try {
         </div>
 
         <h2 class="main__h2" id="youtube-title">
-          Echa un ojo a mis últimos <span class="main__span">vídeos</span> en desarrollo
-          web.
+          Echa un ojo a mis últimos <span class="main__span">vídeos</span> en desarrollo web.
         </h2>
       </div>
 
@@ -71,10 +91,10 @@ try {
                     <picture class="youtube__picture">
                       <img
                         src={
-                          video.snippet.thumbnails.high?.url ??
-                          video.snippet.thumbnails.medium?.url
+                          video.snippet?.thumbnails?.high?.url ??
+                          video.snippet?.thumbnails?.medium?.url
                         }
-                        alt={video.snippet.title}
+                        alt={video.snippet?.title || "Miniatura de vídeo"}
                         class="youtube__thumbnail"
                         loading="lazy"
                       />
@@ -83,7 +103,7 @@ try {
                 </div>
               ))
             ) : (
-              <p>{error || "No se pudieron cargar los vídeos."}</p>
+              <p class="youtube__error">{error || "No se pudieron cargar los vídeos."}</p>
             )
           }
         </div>
@@ -113,6 +133,12 @@ try {
   .youtube {
     margin-bottom: 40px;
   }
+  
+  .youtube__error {
+    text-align: center;
+    color: #e53935;
+    padding: 20px;
+  }
 
   .youtube__logo {
     display: flex;
@@ -125,7 +151,7 @@ try {
     max-width: 100%;
     width: 100%;
     display: block;
-    border: 1px solid $text-secondary;
+    border: 1px solid $text-secondary; 
     border-radius: 8px;
   }
 
@@ -140,7 +166,7 @@ try {
   }
 
   .youtube__picture:hover {
-    border: 1px solid $primary;
+    border: 1px solid $primary; 
   }
 
   .youtube__imgcv {
@@ -157,7 +183,6 @@ try {
 
   .youtube__a {
     border: 1px solid $text-secondary;
-    width: 100px;
     background-color: $bg-linear;
     text-decoration: none;
     height: 46px;
