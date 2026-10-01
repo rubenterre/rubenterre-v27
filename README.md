@@ -1,10 +1,10 @@
-# Portfolio Astro
+# Ruben Terré - Crear y enseñar
 
 
 ![Astro](https://img.shields.io/badge/Astro-1B253A?logo=astro&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)
 
-Este proyecto es un portafolio personal desarrollado con [Astro](https://astro.build/) y componentes Svelte, pensado para mostrar tus habilidades, experiencia, proyectos y enlaces a redes sociales, incluyendo la integración dinámica de vídeos recientes de YouTube.
+Este proyecto es un portafolio personal desarrollado con [Astro](https://astro.build/), pensado para mostrar tus habilidades, experiencia, proyectos y enlaces a redes sociales, incluyendo la integración dinámica de vídeos recientes de YouTube.
 
 ## 🚀 Estructura del Proyecto
 
