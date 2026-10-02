@@ -6,10 +6,10 @@ import youtube from "../../assets/icons/social/youtube.svg";
 import behance from "../../assets/icons/social/behance.svg";
 
 const socials = [
-    {icon: linkedin, name: "Linkedin"},
-    {icon: github, name: "GitHub"},
-    {icon: youtube, name: "YouTube"},
-    {icon: behance, name: "Behance"}
+    {icon: linkedin, name: "Linkedin", href: "https://www.linkedin.com/in/rubenterrelameiro/?isSelfProfile=true"},
+    {icon: github, name: "GitHub", href: "https://github.com/rubenterre"},
+    {icon: youtube, name: "YouTube", href: "https://www.youtube.com/@rubenterre"},
+    {icon: behance, name: "Behance", href: "https://www.behance.net/rubenterre"}
 ]
 ---
 
@@ -51,10 +51,10 @@ const socials = [
       </div>
 
       <div class="hero__social">
-        {socials.map(({icon,name}) => (
+        {socials.map(({icon,name,href}) => (
         <a
           class="hero__social-link animate-hover-btn"
-          href="http://"
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
         >
