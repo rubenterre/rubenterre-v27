@@ -18,6 +18,9 @@
     "url": "https://lendario.gal",
     "urlcode": "",
     "technologies": [
+      { "icon": "icons/technologies/astro-icon-light.svg", "name": "Astro" },
+      { "icon": "icons/technologies/sketch_icon_white.svg", "name": "Sketch" },
+      { "icon": "icons/technologies/stripe_icon_white.svg", "name": "Stripe" },
       { "icon": "icons/technologies/photoshop_icon_white.svg", "name": "Photoshop" },
       { "icon": "icons/technologies/illustrator_icon_white.svg", "name": "Illustrator" }
     ]
