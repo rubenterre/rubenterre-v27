@@ -16,7 +16,7 @@
     "name": "Lendario - Naipes de Galicia",
     "description": "Una baraja española inspirada en los mitos, leyendas y seres de la tradición gallega.",
     "url": "https://lendario.gal",
-    "urlcode": "",
+    "urlcode": "https://github.com/rubenterre/lendario-store",
     "technologies": [
       { "icon": "icons/technologies/astro-icon-light.svg", "name": "Astro" },
       { "icon": "icons/technologies/sketch_icon_white.svg", "name": "Sketch" },
